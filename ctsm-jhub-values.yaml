@@ -33,6 +33,7 @@ hub:
         - varshareddy
         - bdobbins
         - slevis
+        - khrpcek
     NativeAuthenticator:
       enable_signup: true
       minimum_password_length: 8
