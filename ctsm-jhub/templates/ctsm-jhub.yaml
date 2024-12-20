@@ -16,7 +16,7 @@ spec:
       targetRevision: main
       ref: values
   destination:
-    server: https://ml-cluster.k8s.ucar.edu:6443
+    server: https://nwsc-cluster.k8s.ucar.edu:6443
     namespace: '{{ .Values.jhubs.ctsm.namespace }}'
   syncPolicy:
     automated:
@@ -24,3 +24,4 @@ spec:
       selfHeal: true
     syncOptions:
     - CreateNamespace=true
+    - Prune=true
