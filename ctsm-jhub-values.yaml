@@ -15,7 +15,7 @@ ingress:
     nginx.ingress.kubernetes.io/websocket-services: proxy-public
     nginx.org/websocket-services: proxy-public
     cert-manager.io/cluster-issuer: incommon
-    ingressClassName: nginx
+  ingressClassName: nginx
   hosts: 
     - ctsm-jhub.k8s.ucar.edu
   tls:
