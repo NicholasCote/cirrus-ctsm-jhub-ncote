@@ -1,43 +1,70 @@
 singleuser:
-  image:
-    name: docker.io/escomp/test-ctsm-cislcloud-v4
-    tag: "latest"
+    lifecycleHooks:
+        postStart:
+            exec:
+                command:
+                    - cp
+                    - -r
+                    - /opt/ncar/tutorials
+                    - /home/user
+    image:
+        name: hub.k8s.ucar.edu/docker/escomp/test-ctsm-cislcloud-v4
+        tag: v2
+    storage:
+        capacity: 20Gi
+        homeMountPath: /home/user
+        dynamic:
+            storageClass: nwceph-kubepv
+        extraVolumes:
+            - name: glade
+              nfs:
+                server: gladedm1.ucar.edu
+                path: /gpfs/csfs1
+        extraVolumeMounts:
+            - name: glade
+              mountPath: /glade
+              readOnly: true
 ingress:
-  enabled: true
-  annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: 600m
-    nginx.org/client-max-body-size: 10m
-    nginx.ingress.kubernetes.io/proxy-read-timeout: "1800"
-    nginx.ingress.kubernetes.io/proxy-send-timeout: "1800"
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/secure-backends: "true"
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/websocket-services: proxy-public
-    nginx.org/websocket-services: proxy-public
-    cert-manager.io/cluster-issuer: incommon
-  ingressClassName: nginx
-  hosts: 
-    - ctsm-jhub.k8s.ucar.edu
-  tls:
-    - secretName: ctsm-jhub-tls-cert
-      hosts:
+    enabled: true
+    annotations:
+        nginx.ingress.kubernetes.io/proxy-body-size: 600m
+        nginx.org/client-max-body-size: 10m
+        nginx.ingress.kubernetes.io/proxy-read-timeout: "1800"
+        nginx.ingress.kubernetes.io/proxy-send-timeout: "1800"
+        nginx.ingress.kubernetes.io/rewrite-target: /
+        nginx.ingress.kubernetes.io/secure-backends: "true"
+        nginx.ingress.kubernetes.io/ssl-redirect: "true"
+        nginx.ingress.kubernetes.io/websocket-services: proxy-public
+        nginx.org/websocket-services: proxy-public
+        cert-manager.io/cluster-issuer: incommon
+    ingressClassName: nginx-external
+    hosts:
         - ctsm-jhub.k8s.ucar.edu
+    tls:
+        - secretName: ctsm-jhub-tls-cert
+          hosts:
+            - ctsm-jhub.k8s.ucar.edu
 hub:
-  config:
-    JupyterHub:
-      authenticator_class: nativeauthenticator.NativeAuthenticator
-    Authenticator:
-      admin_users:
-        - ncote
-        - kcote
-        - varshareddy
-        - bdobbins
-        - slevis
-        - khrpcek
-    NativeAuthenticator:
-      enable_signup: true
-      minimum_password_length: 8
-      check_common_password: true
-      ask_email_on_signup: true
-      allowed_failed_logins: 3
-      seconds_before_next_try: 1200
+    config:
+        JupyterHub:
+            authenticator_class: nativeauthenticator.NativeAuthenticator
+        Authenticator:
+            allow_all: true
+            admin_users:
+                - ncote
+                - kcote
+                - varshareddy
+                - bdobbins
+                - slevis
+                - khrpcek
+                - samrabin
+        NativeAuthenticator:
+            enable_signup: true
+            minimum_password_length: 8
+            check_common_password: true
+            ask_email_on_signup: true
+            allowed_failed_logins: 3
+            seconds_before_next_try: 1200
+proxy:
+    service:
+        type: ClusterIP
