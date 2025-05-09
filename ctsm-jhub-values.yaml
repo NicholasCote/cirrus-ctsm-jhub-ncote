@@ -13,7 +13,7 @@ singleuser:
     cpu:
       limit: 4
     memory:
-      limit: 16Gi
+      limit: 16G
     storage:
         capacity: 20Gi
         homeMountPath: /home/user
