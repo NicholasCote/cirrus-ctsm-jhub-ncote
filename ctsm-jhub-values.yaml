@@ -9,7 +9,7 @@ singleuser:
                     - /home/user
     image:
         name: hub.k8s.ucar.edu/docker/escomp/test-ctsm-cislcloud-v4
-        tag: v2
+        tag: v3
     storage:
         capacity: 20Gi
         homeMountPath: /home/user
