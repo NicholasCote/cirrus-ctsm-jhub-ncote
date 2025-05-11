@@ -9,7 +9,7 @@ singleuser:
                     - /home/user
     image:
         name: hub.k8s.ucar.edu/docker/escomp/test-ctsm-cislcloud-v4
-        tag: v12
+        tag: v13
     cpu:
       limit: 4
     memory:
