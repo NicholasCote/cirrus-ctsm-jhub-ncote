@@ -3,10 +3,7 @@ singleuser:
         postStart:
             exec:
                 command:
-                    - cp
-                    - -r
-                    - /opt/ncar/tutorials
-                    - /home/user
+                    - /opt/ncar/scripts/initialize_tutorials
     image:
         name: hub.k8s.ucar.edu/docker/escomp/test-ctsm-cislcloud-v4
         tag: v16
