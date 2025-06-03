@@ -78,7 +78,7 @@ hub:
             - https://github.com/NicholasCote/ncar-hub-homepage.git
             - /etc/jupyterhub/custom
           securityContext:
-            runAsUser: 0
+            runAsUser: 1000
           volumeMounts:
             - name: custom-templates
               mountPath: /etc/jupyterhub/custom
