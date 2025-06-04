@@ -15,15 +15,6 @@ singleuser:
         homeMountPath: /home/user
         dynamic:
             storageClass: ceph-kubepv
-        extraVolumes:
-            - name: glade
-              nfs:
-                server: gladedm1.ucar.edu
-                path: /gpfs/csfs1
-        extraVolumeMounts:
-            - name: glade
-              mountPath: /glade/campaign
-              readOnly: true
 ingress:
     enabled: true
     annotations:
