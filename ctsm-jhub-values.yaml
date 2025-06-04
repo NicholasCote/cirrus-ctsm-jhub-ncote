@@ -56,32 +56,6 @@ hub:
             ask_email_on_signup: true
             allowed_failed_logins: 3
             seconds_before_next_try: 1200
-      # Clone custom JupyterHub templates into a volume
-    initContainers:
-        - name: git-clone-templates
-          image: alpine/git
-          args:
-            - clone
-            - --single-branch
-            - --branch=master
-            - --depth=1
-            - --
-            - https://github.com/NicholasCote/ncar-hub-homepage.git
-            - /etc/jupyterhub/custom
-          securityContext:
-            runAsUser: 1000
-          volumeMounts:
-            - name: custom-templates
-              mountPath: /etc/jupyterhub/custom
-    extraVolumes:
-        - name: custom-templates
-          emptyDir: {}
-    extraVolumeMounts:
-        - name: custom-templates
-          mountPath: /etc/jupyterhub/custom
-    extraConfig:
-        templates: |
-          c.JupyterHub.template_paths = ['/etc/jupyterhub/custom']
 proxy:
     service:
         type: ClusterIP
