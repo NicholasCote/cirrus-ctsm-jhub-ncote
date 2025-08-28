@@ -14,7 +14,7 @@ singleuser:
         capacity: 20Gi
         homeMountPath: /home/user
         dynamic:
-            storageClass: nwceph-kubepv
+            storageClass: ceph-kubepv
         extraVolumes:
             - name: glade
               nfs:
