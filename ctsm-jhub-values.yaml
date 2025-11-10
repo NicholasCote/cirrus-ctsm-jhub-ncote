@@ -12,7 +12,7 @@ singleuser:
       limit: 16G
     storage:
         capacity: 20Gi
-        homeMountPath: /home/user/data
+        homeMountPath: /home/user
         dynamic:
             storageClass: ceph-kubepv
         extraVolumes:
@@ -22,7 +22,7 @@ singleuser:
                 path: /gpfs/csfs1
         extraVolumeMounts:
             - name: glade
-              mountPath: /glade
+              mountPath: /home/user/glade
               subPath: cesm/cesmdata/cseg/inputdata
               readOnly: true
 ingress:
