@@ -22,8 +22,8 @@ singleuser:
                 path: /gpfs/csfs1
         extraVolumeMounts:
             - name: glade
-              mountPath: /glade/
-              subPath: campaign/cesm/cesmdata/cseg/inputdata
+              mountPath: /glade
+              subPath: cesm/cesmdata/cseg/inputdata
               readOnly: true
 ingress:
     enabled: true
