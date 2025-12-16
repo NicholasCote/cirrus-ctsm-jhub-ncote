@@ -27,6 +27,7 @@ singleuser:
               readOnly: true
 
 hub:
+  revisionHistoryLimit: 3
   templatePaths:
     - /usr/local/share/jupyterhub/custom_templates
     - /usr/local/lib/python3.12/site-packages/nativeauthenticator/templates/
@@ -85,5 +86,6 @@ ingress:
             - ctsm-jhub-dev.k8s.ucar.edu
 
 proxy:
-    service:
-        type: ClusterIP
+  revisionHistoryLimit: 3
+  service:
+    type: ClusterIP
