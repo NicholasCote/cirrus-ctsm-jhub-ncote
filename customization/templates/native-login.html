@@ -36,13 +36,6 @@
     
     <div class="login-form-section">
         {{ super() }}
-        </div>
-        {% else %}
-        <form action="{{ authenticator_login_url | safe }}" method="post" role="form">
-            <input type="hidden" name="_xsrf" value="{{ xsrf }}" />
-            <button class="btn btn-jupyter" type="submit">Sign in</button>
-        </form>
-        {% endif %}
     </div>
     
     <div class="cirrus-help-text">
