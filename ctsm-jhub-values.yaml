@@ -25,6 +25,21 @@ singleuser:
               mountPath: /home/user/glade
               subPath: cesm/cesmdata/cseg/inputdata
               readOnly: true
+hub:
+  templatePaths:
+    - /usr/local/share/jupyterhub/custom_templates
+  extraVolumes:
+    - name: custom-templates
+      configMap:
+        name: jupyterhub-custom-templates
+    - name: custom-static
+      configMap:
+        name: jupyterhub-custom-static-css
+  extraVolumeMounts:
+    - name: custom-templates
+      mountPath: /usr/local/share/jupyterhub/custom_templates
+    - name: custom-static
+      mountPath: /usr/local/share/jupyterhub/static/custom/css
 ingress:
     enabled: true
     annotations:
