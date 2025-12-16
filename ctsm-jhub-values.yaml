@@ -25,6 +25,21 @@ singleuser:
               mountPath: /home/user/glade
               subPath: cesm/cesmdata/cseg/inputdata
               readOnly: true
+hub:
+  templatePaths:
+    - /usr/local/share/jupyterhub/custom_templates
+  extraVolumes:
+    - name: custom-templates
+      configMap:
+        name: jupyterhub-custom-templates
+    - name: custom-static
+      configMap:
+        name: jupyterhub-custom-static-css
+  extraVolumeMounts:
+    - name: custom-templates
+      mountPath: /usr/local/share/jupyterhub/custom_templates
+    - name: custom-static
+      mountPath: /usr/local/share/jupyterhub/static/custom/css
 ingress:
     enabled: true
     annotations:
@@ -40,11 +55,11 @@ ingress:
         cert-manager.io/cluster-issuer: incommon
     ingressClassName: nginx-external
     hosts:
-        - ctsm-jhub.k8s.ucar.edu
+        - ctsm-jhub-dev.k8s.ucar.edu
     tls:
-        - secretName: ctsm-jhub-tls-cert
+        - secretName: ctsm-jhub-dev-tls-cert
           hosts:
-            - ctsm-jhub.k8s.ucar.edu
+            - ctsm-jhub-dev.k8s.ucar.edu
 hub:
     config:
         JupyterHub:
