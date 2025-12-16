@@ -10,7 +10,7 @@ configMapGenerator:
   - name: jupyterhub-custom-templates
     files:
       - page.html=customization/templates/page.html
-      - login.html=customization/templates/login.html
+      - native-login.html=customization/templates/native-login.html
       - spawn.html=customization/templates/spawn.html
   
   - name: jupyterhub-custom-static-css
