@@ -25,6 +25,7 @@ singleuser:
               mountPath: /home/user/glade
               subPath: cesm/cesmdata/cseg/inputdata
               readOnly: true
+
 hub:
   templatePaths:
     - /usr/local/share/jupyterhub/custom_templates
@@ -40,6 +41,27 @@ hub:
       mountPath: /usr/local/share/jupyterhub/custom_templates
     - name: custom-static
       mountPath: /usr/local/share/jupyterhub/static/custom/css
+  config:
+    JupyterHub:
+      authenticator_class: nativeauthenticator.NativeAuthenticator
+    Authenticator:
+      allow_all: true
+      admin_users:
+        - ncote
+        - kcote
+        - varshareddy
+        - bdobbins
+        - slevis
+        - khrpcek
+        - samrabin
+    NativeAuthenticator:
+      enable_signup: true
+      minimum_password_length: 8
+      check_common_password: true
+      ask_email_on_signup: true
+      allowed_failed_logins: 3
+      seconds_before_next_try: 1200
+
 ingress:
     enabled: true
     annotations:
@@ -60,27 +82,7 @@ ingress:
         - secretName: ctsm-jhub-dev-tls-cert
           hosts:
             - ctsm-jhub-dev.k8s.ucar.edu
-hub:
-    config:
-        JupyterHub:
-            authenticator_class: nativeauthenticator.NativeAuthenticator
-        Authenticator:
-            allow_all: true
-            admin_users:
-                - ncote
-                - kcote
-                - varshareddy
-                - bdobbins
-                - slevis
-                - khrpcek
-                - samrabin
-        NativeAuthenticator:
-            enable_signup: true
-            minimum_password_length: 8
-            check_common_password: true
-            ask_email_on_signup: true
-            allowed_failed_logins: 3
-            seconds_before_next_try: 1200
+
 proxy:
     service:
         type: ClusterIP
