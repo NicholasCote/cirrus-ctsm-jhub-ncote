@@ -731,3 +731,141 @@ body {
         margin-bottom: 1rem !important;
     }
 }
+
+/* Override NativeAuthenticator default styles */
+.login-container {
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.cirrus-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.cirrus-header h1 {
+    color: #003c71; /* NCAR blue */
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.cirrus-subtitle {
+    color: #666;
+    font-size: 1.2rem;
+}
+
+/* Style the login form */
+#login-main.container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.auth-form-header {
+    background: #003c71; /* NCAR blue */
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px 8px 0 0;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.auth-form-body {
+    padding: 2rem;
+}
+
+.auth-form-body label {
+    color: #333;
+    font-weight: 500;
+    margin-top: 1rem;
+    display: block;
+}
+
+.auth-form-body input[type="text"],
+.auth-form-body input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 0.25rem;
+}
+
+.auth-form-body .btn-jupyter {
+    background: #f37726; /* Jupyter orange */
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.auth-form-body .btn-jupyter:hover {
+    background: #e66616;
+}
+
+.auth-form-body hr {
+    margin: 1.5rem 0;
+    border-top: 1px solid #ddd;
+}
+
+.auth-form-body p a {
+    color: #003c71;
+    text-decoration: none;
+}
+
+.auth-form-body p a:hover {
+    text-decoration: underline;
+}
+
+.login_error {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.input-group {
+    display: flex;
+    margin-top: 0.25rem;
+}
+
+.input-group input {
+    flex: 1;
+    border-radius: 4px 0 0 4px;
+}
+
+.input-group-addon {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-left: none;
+    padding: 0.75rem;
+    border-radius: 0 4px 4px 0;
+}
+
+.input-group-addon button {
+    background: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.cirrus-help-text {
+    text-align: center;
+    color: #666;
+    margin: 2rem 0;
+}
+
+.cirrus-help-text a {
+    color: #003c71;
+    text-decoration: none;
+}
+
+.cirrus-help-text a:hover {
+    text-decoration: underline;
+}
