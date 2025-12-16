@@ -29,6 +29,7 @@ singleuser:
 hub:
   templatePaths:
     - /usr/local/share/jupyterhub/custom_templates
+    - /usr/local/lib/python3.12/site-packages/nativeauthenticator/templates/
   extraVolumes:
     - name: custom-templates
       configMap:
