@@ -1,4 +1,5 @@
-{% extends "native-login.html" %}
+{# native-login.html - full custom template #}
+{% extends "page.html" %}
 
 {% block title %}CTSM JupyterHub{% endblock %}
 
@@ -14,42 +15,93 @@
 {% block logo %}
 <span id="jupyterhub-logo" class="navbar-brand d-flex align-items-center">
   <a href="https://jupyter.org/hub">
-    <img src='{{ base_url }}logo'
-         alt='JupyterHub logo'
-         class='jpy-logo'
-         title='Home' />
+    <img src='{{ base_url }}logo' alt='JupyterHub logo' class='jpy-logo' title='Home' />
   </a>
   <a href="https://ncar.ucar.edu/">
-  <img src="https://raw.githubusercontent.com/NCAR/cirrus-ctsm-jhub/main/static/images/NSF-NCAR_Logo_Color-Blue_RGB.png" 
-       alt="NCAR Logo" 
-       class="ncar-logo-navbar ms-3">
+    <img src="https://raw.githubusercontent.com/NCAR/cirrus-ctsm-jhub/main/static/images/NSF-NCAR_Logo_Color-Blue_RGB.png" 
+         alt="NCAR Logo" class="ncar-logo-navbar ms-3">
   </a>
 </span>
 {% endblock %}
 
+{% block script %}
+{{ super() }}
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        let button = document.getElementById('eye');
+        button.addEventListener("click", function(e) {
+            let pwd = document.getElementById("password_input");
+            if (pwd.getAttribute("type") === "password") {
+                pwd.setAttribute("type", "text");
+                button.textContent = "🔑";
+            } else {
+                pwd.setAttribute("type", "password");
+                button.textContent = "👁";
+            }
+        });
+    });
+
+    if (window.location.protocol === "http:") {
+        let warning = document.getElementById('insecure-login-warning');
+        warning.className = warning.className.replace(/\bhidden\b/, '');
+    }
+</script>
+{% endblock script %}
+
+{% block main %}
 {% block login %}
 <div class="login-container">
     <div class="cirrus-header">
         <h1>CTSM JupyterHub</h1>
         <p class="cirrus-subtitle">Run CTSM Example Workflows</p>
     </div>
-    
-    <div class="login-form-section">
-        {{ super() }}
+
+    <div id="login-main" class="container">
+        <form action="{{login_url}}?next={{next}}" method="post" role="form">
+            <div class="auth-form-header">Sign In</div>
+
+            <div class='auth-form-body'>
+                <p id='insecure-login-warning' class='hidden'>
+                    Warning: JupyterHub seems to be served over an unsecured HTTP connection.
+                </p>
+
+                {% if login_error %}
+                <p class="login_error">{{login_error}}</p>
+                {% endif %}
+
+                <input type="hidden" name="_xsrf" value="{{ xsrf }}"/>
+                <label for="username_input">Username:</label>
+                <input id="username_input" type="text" name="username" val="{{username}}" 
+                       autocapitalize="off" autocorrect="off" class="form-control" 
+                       autofocus="autofocus" required />
+
+                <label for='password_input'>Password:</label>
+                <div class="input-group">
+                    <input id="password_input" type="password" name="password" 
+                           autocapitalize="off" autocorrect="off" class="form-control" />
+                    <span class="input-group-addon">
+                        <button id="eye" type="button" style="border:0;">👁</button>
+                    </span>
+                </div>
+
+                <input type="submit" id="login_submit" class='btn btn-jupyter' value='Sign In' />
+
+                <hr />
+                <p><a href="{{ base_url }}signup">Sign up</a> to create a new user.</p>
+            </div>
+        </form>
     </div>
     
     <div class="cirrus-help-text">
         <p>
             Need help? Visit 
-            <a href="https://github.com/ESCOMP/CTSM" target="_blank">
-                CTSM GitHub Repo
-            </a>
-            or email 
-            <a href="mailto:ctsm-project@ucar.edu">ctsm-project@ucar.edu</a>
+            <a href="https://github.com/ESCOMP/CTSM" target="_blank">CTSM GitHub Repo</a>
+            or email <a href="mailto:ctsm-project@ucar.edu">ctsm-project@ucar.edu</a>
         </p>
     </div>
 </div>
-{% endblock %}
+{% endblock login %}
+{% endblock main %}
 
 {% block footer %}
 <footer>
