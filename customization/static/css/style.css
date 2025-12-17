@@ -27,7 +27,7 @@ body {
 }
 
 body > .container:not(.login-container) {
-    min-height: 60vh;
+    min-height: calc(100vh - 637px);
     display: flex;
     flex-direction: column;
     justify-content: center;
