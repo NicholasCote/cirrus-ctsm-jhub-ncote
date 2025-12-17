@@ -26,6 +26,13 @@ body {
     flex-direction: column;
 }
 
+body > .container:not(.login-container) {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 #main {
     flex: 1 0 auto;
 }
