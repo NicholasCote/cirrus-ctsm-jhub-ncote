@@ -75,6 +75,11 @@ body {
     overflow: hidden;
 }
 
+/* Native Authenticator */
+#login-main .auth-form-header {
+    background: linear-gradient(135deg, #0057C2 50%, #00357A 80%);
+}
+
 /* Header Section */
 .login-header {
     background: linear-gradient(135deg, #0057C2 50%, #00357A 80%);
