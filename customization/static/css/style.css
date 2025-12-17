@@ -119,6 +119,33 @@ body {
     text-decoration: none;
 }
 
+.login-details {
+    padding: 0 2rem 2rem 2rem;
+}
+
+.login-details h4 {
+    color: var(--ncar-blue);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.login-details p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.login-details a {
+    color: var(--ncar-blue);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-details a:hover {
+    text-decoration: underline;
+}
+
 /* Header Section */
 .login-header {
     background: linear-gradient(135deg, #0057C2 50%, #00357A 80%);
