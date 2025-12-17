@@ -76,6 +76,16 @@ body {
 }
 
 /* Native Authenticator */
+#login-main.container {
+    display: block !important;
+    height: auto !important;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
 #login-main .auth-form-header {
     background: linear-gradient(135deg, #0057C2 50%, #00357A 80%);
 }
