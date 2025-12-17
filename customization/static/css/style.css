@@ -301,91 +301,180 @@ body {
     box-shadow: 0 0 0 3px rgba(0, 87, 194, 0.1);
 }
 
-/* Multi-Section Footer */
-.footer {
-    background-color: rgb(45, 45, 45);
-    color: #cccccc;
-    margin-top: auto;
-}
-
-.footer .container {
-    max-width: 1200px;
-}
-
-.footer-heading {
+/* ===== FOOTER ===== */
+.org-footer {
+    background-color: #323133;
     color: #ffffff;
-    font-size: 16px;
+}
+
+.org-footer h3 {
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+}
+
+.org-footer h4 {
+    color: #ffffff;
+    font-size: 1rem;
     font-weight: 600;
-    margin-bottom: 15px;
 }
 
-.footer-links a {
-    color: #cccccc;
+.org-footer .nav-link {
+    color: #c3d7ee;
     text-decoration: none;
-    font-size: 14px;
-    transition: color 0.2s ease;
+    transition: var(--transition);
+    font-size: 0.875rem;
+    padding: 0.25rem 0;
+    border: none;
 }
 
-.footer-links a:hover {
-    color: var(--ncar-blue);
+.org-footer .nav-link:hover {
+    color: #00c1d5;
+    border-bottom-color: transparent;
 }
 
-/* Legal Footer Section */
+.org-footer .accordion-button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    padding: 0;
+}
+
+.org-footer .accordion-button:not(.collapsed) {
+    background: none;
+    color: #ffffff;
+}
+
+.org-footer .accordion-button:focus {
+    box-shadow: none;
+}
+
+.newsletter-signup .form-control {
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.newsletter-signup .btn-primary {
+    border-radius: 0 0.25rem 0.25rem 0;
+    background-color: var(--ncar-blue);
+    border-color: var(--ncar-blue);
+    padding: 0.375rem 1rem;
+    font-size: 0.875rem;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.newsletter-signup .btn-primary:hover {
+    background-color: var(--ncar-blue-dark);
+    border-color: var(--ncar-blue-dark);
+    transform: none;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    font-size: 1.25rem;
+}
+
+.social-icons a {
+    color: rgba(255, 255, 255, 0.75);
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    color: #ffffff;
+}
+
 .legal-footer {
-    background-color: rgb(35, 35, 35);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #252525;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: left;
 }
 
-.legal-footer-text {
-    color: #cccccc;
-    font-size: 13px;
-    margin: 0;
+.legal-footer .nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    align-items: flex-start;
 }
 
-.legal-footer-address {
-    color: #999999;
-    font-size: 12px;
-    margin: 0;
+.legal-footer .nav-item {
+    padding-left: 0;
 }
 
-.legal-link {
+.legal-footer .nav-link {
+    color: #c3d7ee;
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 0.875rem;
+    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+    padding-left: 0;
+    padding-top: 0;
+    display: inline-block;
+    border: none;
+}
+
+.legal-footer .nav-link:hover {
+    color: #00c1d5;
+    border-bottom-color: transparent;
+}
+
+.legal-footer .copyright {
+    float: left;
+    line-height: unset;
+    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+    margin-bottom: 0.375rem !important;
+}
+
+.legal-footer .text-gray-light {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.875rem;
+}
+
+.nsf-footer {
+    background-color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.nsf-footer img {
+    max-width: 80px;
+    height: auto;
+}
+
+.nsf-footer a {
     color: var(--ncar-blue);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: var(--transition);
 }
 
-.legal-link:hover {
-    color: #ffffff;
+.nsf-footer a:hover {
+    color: var(--ncar-blue-dark);
     text-decoration: underline;
 }
 
-/* NSF Footer Section */
-.footer-nsf-section {
-    background-color: rgb(40, 40, 40);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+.py-3 {
+    padding-top: 1.875rem !important;
+    padding-bottom: 1.875rem !important;
 }
 
-.footer-nsf-logo {
-    height: 60px;
-    width: auto;
+.py-md3 {
+    padding-top: 1.875rem !important;
+    padding-bottom: 1.875rem !important;
 }
 
-.footer-nsf-text {
-    color: #cccccc;
-    font-size: 13px;
-    line-height: 1.6;
-    margin: 0;
-}
-
-.footer-nsf-link {
-    color: var(--ncar-blue);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.footer-nsf-link:hover {
-    color: #ffffff;
-    text-decoration: underline;
+/* Mobile accordion controls */
+@media (max-width: 767px) {
+    .org-footer .accordion-button::after {
+        content: '\f078';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+    }
+    
+    .org-footer .accordion-button:not(.collapsed)::after {
+        content: '\f077';
+    }
 }
 
 /* Bootstrap Grid Utilities */
