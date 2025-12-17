@@ -80,6 +80,33 @@ body {
     background: linear-gradient(135deg, #0057C2 50%, #00357A 80%);
 }
 
+.form-control:focus {
+    border-color: var(--ncar-blue);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 87, 194, 0.1);
+}
+
+.login-main .btn-jupyter {
+    background-color: var(--ncar-blue);
+    border-color: var(--ncar-blue);
+    font-weight: 600;
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    width: 100%;
+    color: #ffffff !important;
+    cursor: pointer;
+}
+
+.login-main .btn-jupyter:hover {
+    background-color: var(--ncar-blue-dark);
+    border-color: var(--ncar-blue-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 87, 194, 0.3);
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
 /* Header Section */
 .login-header {
     background: linear-gradient(135deg, #0057C2 50%, #00357A 80%);
