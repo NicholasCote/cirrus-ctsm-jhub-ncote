@@ -37,7 +37,7 @@ body {
 /* Global Styles */
 
 /* Navbar Customization */
-.cirrus-navbar {
+.custom-navbar {
     background-color: var(--navbar-bg) !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -76,7 +76,7 @@ body {
 }
 
 /* Header Section */
-.cirrus-header {
+.login-header {
     background: linear-gradient(135deg, #0057C2 50%, #00357A 80%);
     padding: 3rem 2rem;
     text-align: center;
@@ -84,7 +84,7 @@ body {
     overflow: hidden;
 }
 
-.cirrus-header::before {
+.login-header::before {
     content: '';
     position: absolute;
     top: 0;
@@ -96,15 +96,7 @@ body {
     opacity: 0.1;
 }
 
-.cirrus-logo {
-    max-width: 280px;
-    height: auto;
-    margin-bottom: 1rem;
-    position: relative;
-    z-index: 1;
-}
-
-.cirrus-header h1 {
+.login-header h1 {
     color: white;
     font-size: 1.75rem;
     font-weight: 700;
@@ -113,7 +105,7 @@ body {
     z-index: 1;
 }
 
-.cirrus-subtitle {
+.login-subtitle {
     color: rgba(255, 255, 255, 0.9);
     font-size: 0.95rem;
     margin-top: 0.5rem;
@@ -158,27 +150,27 @@ body {
 }
 
 /* Help Text Section */
-.cirrus-help-text {
+.jhub-help-text {
     background-color: #f8f9fa;
     padding: 1.5rem 2rem;
     text-align: center;
     border-top: 1px solid #dee2e6;
 }
 
-.cirrus-help-text p {
+.jhub-help-text p {
     margin: 0;
     font-size: 0.9rem;
     color: #6c757d;
     line-height: 1.6;
 }
 
-.cirrus-help-text a {
+.jhub-help-text a {
     color: var(--ncar-blue);
     text-decoration: none;
     font-weight: 500;
 }
 
-.cirrus-help-text a:hover {
+.jhub-help-text a:hover {
     text-decoration: underline;
 }
 
@@ -677,19 +669,15 @@ body {
         padding: 1.5rem;
     }
     
-    .cirrus-header {
+    .login-header {
         padding: 2rem 1.5rem;
     }
     
-    .cirrus-logo {
-        max-width: 200px;
-    }
-    
-    .cirrus-header h1 {
+    .login-header h1 {
         font-size: 1.5rem;
     }
     
-    .cirrus-subtitle {
+    .login-subtitle {
         font-size: 0.85rem;
     }
     
