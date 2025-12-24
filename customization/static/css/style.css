@@ -290,6 +290,14 @@ body > .container:not(.login-container) {
 }
 
 /* Spawn Page Styling */
+.h1 {
+    color: var(--ncar-blue-dark)
+}
+
+.p {
+    color: var(--ncar-blue-dark)
+}
+
 .spawn-container {
     padding: 2rem 1rem;
 }
