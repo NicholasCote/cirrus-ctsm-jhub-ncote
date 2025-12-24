@@ -179,16 +179,6 @@
             <ul class="nav navbar-nav me-2">
               {% block nav_bar_right_items %}
                 <li class="nav-item">
-                  {% block theme_toggle %}
-                    <button class="btn btn-sm"
-                            id="dark-theme-toggle"
-                            aria-label="Toggle dark mode"
-                            title="Toggle dark mode">
-                      <i aria-hidden="true" class="fa fa-circle-half-stroke"></i>
-                    </button>
-                  {% endblock theme_toggle %}
-                </li>
-                <li class="nav-item">
                   {% block login_widget %}
                     <span id="login_widget">
                       {% if user %}
