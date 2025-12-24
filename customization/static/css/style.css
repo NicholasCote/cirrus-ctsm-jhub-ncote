@@ -291,11 +291,11 @@ body > .container:not(.login-container) {
 
 /* Spawn Page Styling */
 .h1, .h2 {
-    color: var(--ncar-blue-dark)
+    color: var(--ncar-blue-dark) !important;
 }
 
 .p {
-    color: var(--ncar-blue-dark)
+    color: var(--ncar-blue-dark) !important;
 }
 
 .selected-profile {
