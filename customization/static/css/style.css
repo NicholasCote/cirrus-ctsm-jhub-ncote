@@ -290,12 +290,16 @@ body > .container:not(.login-container) {
 }
 
 /* Spawn Page Styling */
-.h1 {
+.h1, .h2 {
     color: var(--ncar-blue-dark)
 }
 
 .p {
     color: var(--ncar-blue-dark)
+}
+
+.selected-profile {
+    background-color: #FFFFFF !important;
 }
 
 .spawn-container {
